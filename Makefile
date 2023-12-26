@@ -6,7 +6,7 @@
 #    By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 10:23:52 by cdomet-d          #+#    #+#              #
-#    Updated: 2023/12/26 12:45:05 by cdomet-d         ###   ########lyon.fr    #
+#    Updated: 2023/12/26 13:26:22 by cdomet-d         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,8 @@ SRCS := ft_atoi.c \
  		ft_lstadd_front_bonus.c \
  		ft_lstlast_bonus.c \
  		ft_lstsize_bonus.c \
+		get_next_line.c \
+		get_next_line_utils.c \
 		
 OBJS := $(SRCS:%.c=$(DIR_BUILD)/%.o)
 				

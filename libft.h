@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:20:53 by cdomet-d          #+#    #+#             */
-/*   Updated: 2023/12/26 12:58:54 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2023/12/26 13:44:57 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 
 # include <stdlib.h> // for malloc
 # include <unistd.h> // for write
-# include <limits.h> // for INT_MAX & INT_MIN
 # include <stdint.h> // for SIZE_MAX
 # include <stdarg.h> // for variadic functions handling
-
+# include <limits.h> // NULL, MAX_INT, etc...
+/* GNL */
+# define MAX_FD	1024
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 56
+# endif
+/* PRINT_F */
 # define LOWER_HEXA "0123456789abcdef"
 # define UPPER_HEXA "0123456789ABCDEF"
 # define DEC "0123456789"
@@ -90,5 +95,14 @@ ssize_t	printp(va_list arg_list);
 ssize_t	printpercent(void);
 ssize_t	printstr(va_list arg_list);
 ssize_t	printx(va_list arg_list, char flag);
+
+/* GNL functions */
+char	*ft_buffer_alloc(void);
+char	*ft_free(char *s1, char *s2);
+char	*ft_join_buff(char *buff, char *read);
+char	*ft_read(char *buff, int *check, int fd);
+char	*ft_split_buff(char *buff, char *leftover);
+char	*get_next_line(int fd);
+ssize_t	ft_len(const char *s, char c);
 
 #endif
