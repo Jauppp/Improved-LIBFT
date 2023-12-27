@@ -6,7 +6,7 @@
 #    By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 10:23:52 by cdomet-d          #+#    #+#              #
-#    Updated: 2023/12/26 13:26:22 by cdomet-d         ###   ########lyon.fr    #
+#    Updated: 2023/12/27 16:08:57 by cdomet-d         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 CFLAGS = -Werror -Wextra -Wall
 CPPFLAGS = -MMD -MP
 
-DIR_BUILD := .BUILD_DIR
+BUILD_DIR := .dir_build
 SRCS := ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
@@ -67,7 +67,7 @@ SRCS := ft_atoi.c \
 		get_next_line.c \
 		get_next_line_utils.c \
 		
-OBJS := $(SRCS:%.c=$(DIR_BUILD)/%.o)
+OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)
 				
 DEPS := $(OBJS:%.o=%.d)
 RM := rm -rf
@@ -75,18 +75,21 @@ RM := rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJS) 
-	ar -rcs $(NAME) $(OBJS) 
+	@echo Compiling libft...
+	@ar -rcs $(NAME) $(OBJS)
+	@echo Exiting LIBFT_DIR...
 
-$(DIR_BUILD)/%.o:%.c
-	@mkdir -p $(DIR_BUILD)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+$(BUILD_DIR)/%.o:%.c libft.h
+	@echo LIBFT/Extracting objects...
+	@mkdir -p $(BUILD_DIR)
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
--include $(DEPS)
+ -include $(DEPS)
 
 clean: 
-	$(RM) $(DIR_BUILD)
+	$(RM) $(BUILD_DIR)
 fclean: clean
 	$(RM) $(NAME)
 re: fclean all
 
-.PHONY : clean fclean all re so bonus
+.PHONY : clean fclean all re
