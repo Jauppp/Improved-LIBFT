@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:36:42 by cdomet-d          #+#    #+#             */
-/*   Updated: 2023/11/23 15:27:07 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/01/17 15:36:13 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_lstnew(void *content)
 	temp = malloc(1 * sizeof(t_list));
 	if (!temp)
 		return (NULL);
-	temp->content = content;
+	temp->data = content;
 	temp->next = NULL;
 	return (temp);
 }

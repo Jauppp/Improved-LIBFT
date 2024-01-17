@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 15:20:53 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/01/17 09:55:12 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/01/17 15:35:30 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define MAX_FD	1024
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 56
+#  define BUFFER_SIZE 10
 # endif
 /* PRINT_F */
 # define LOWER_HEXA "0123456789abcdef"
@@ -35,7 +35,7 @@
 /* Simple chained list*/
 typedef struct s_list
 {
-	void			*content;
+	void			*data;
 	struct s_list	*next;
 }	t_list;
 

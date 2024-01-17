@@ -6,24 +6,27 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 09:52:20 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/01/17 09:55:53 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/01/17 15:36:35 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 t_list	*ft_lstfree(t_list **lst)
 {
-	t_list	*current;
-
-	if (!lst)
-		return (*lst);
-	while (*lst)
+	t_list	*temp;
+	if (lst && *lst)
 	{
-		current = (*lst)->next;
-        free(*lst);
-		(*lst) = current;
+		while ((*lst)->next)
+		{
+			temp = (*lst)->next;
+			free((*lst)->data);
+			free(*lst);
+			*lst = temp;
+		}
+		free(*lst);
 	}
-    lst = NULL;
-    return (*lst);
+	*lst = NULL;
+	return (NULL);
 }

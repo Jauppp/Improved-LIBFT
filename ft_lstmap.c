@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:07:53 by cdomet-d          #+#    #+#             */
-/*   Updated: 2023/11/24 11:14:03 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/01/17 15:36:25 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	lstcpy = NULL;
 	while (lst)
 	{
-		new_content = (*f)(lst->content);
+		new_content = (*f)(lst->data);
 		temp = ft_lstnew(new_content);
 		if (!temp)
 		{
