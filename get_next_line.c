@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:14:01 by cdomet-d          #+#    #+#             */
-/*   Updated: 2023/12/26 13:42:59 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2023/12/28 12:57:10 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,3 @@ char	*ft_split_buff(char *buff, char *leftover)
 	ft_free(buff, NULL);
 	return (line);
 }
-

@@ -6,7 +6,7 @@
 #    By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 10:23:52 by cdomet-d          #+#    #+#              #
-#    Updated: 2023/12/27 16:08:57 by cdomet-d         ###   ########lyon.fr    #
+#    Updated: 2024/01/17 09:55:31 by cdomet-d         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CPPFLAGS = -MMD -MP
 
 BUILD_DIR := .dir_build
 SRCS := ft_atoi.c \
+		ft_atoi_intmax.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -55,17 +56,20 @@ SRCS := ft_atoi.c \
 		ft_printf.c \
 		ft_print_chars.c \
 		ft_print_nums.c \
-		ft_lstadd_back_bonus.c \
-		ft_lstclear_bonus.c \
-		ft_lstdelone_bonus.c \
-		ft_lstiter_bonus.c \
-		ft_lstnew_bonus.c \
-		ft_lstmap_bonus.c \
- 		ft_lstadd_front_bonus.c \
- 		ft_lstlast_bonus.c \
- 		ft_lstsize_bonus.c \
+		ft_lstadd_back.c \
+		ft_lstclear.c \
+		ft_lstdelone.c \
+		ft_lstiter.c \
+		ft_lstnew.c \
+		ft_lstmap.c \
+ 		ft_lstadd_front.c \
+ 		ft_lstlast.c \
+ 		ft_lstsize.c \
 		get_next_line.c \
 		get_next_line_utils.c \
+		ft_isspace.c \
+		ft_isdigit_negative.c \
+		ft_lstfree.c \
 		
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)
 				
@@ -75,14 +79,11 @@ RM := rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJS) 
-	@echo Compiling libft...
 	@ar -rcs $(NAME) $(OBJS)
-	@echo Exiting LIBFT_DIR...
 
 $(BUILD_DIR)/%.o:%.c libft.h
-	@echo LIBFT/Extracting objects...
 	@mkdir -p $(BUILD_DIR)
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
  -include $(DEPS)
 
