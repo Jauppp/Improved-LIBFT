@@ -6,7 +6,7 @@
 #    By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 10:23:52 by cdomet-d          #+#    #+#              #
-#    Updated: 2024/01/17 09:55:31 by cdomet-d         ###   ########lyon.fr    #
+#    Updated: 2024/01/19 16:15:57 by cdomet-d         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,8 +78,14 @@ RM := rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS) 
-	@ar -rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+	@echo
+	@echo "$(PURPLE)|=========== \t\t Creating libft.a... \t\t ===========|$(BLACK)"
+	@echo
+	ar -rcs $(NAME) $(OBJS)
+	@echo
+	@echo "$(GREEN)|=========== \t\t libft.a done ! \t\t ===========|$(BLACK)"
+	@echo
 
 $(BUILD_DIR)/%.o:%.c libft.h
 	@mkdir -p $(BUILD_DIR)
@@ -93,4 +99,9 @@ fclean: clean
 	$(RM) $(NAME)
 re: fclean all
 
-.PHONY : clean fclean all re
+# Colors
+BLACK=\033[30m
+GREEN=\033[32m
+PURPLE=\033[35m
+
+.PHONY : clean fclean all re BLACK PURPLE GREEN
